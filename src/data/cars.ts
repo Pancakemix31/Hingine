@@ -23,7 +23,7 @@ export const cars: Car[] = [
     matchScore: 92,
     mpg: "50 mpg combined",
     imageUrl:
-      "https://global.toyota/pages/models/corolla-hybrid/2024/gallery/large/2024_corolla_hybrid_1.jpg",
+      "https://platform.cstatic-images.com/xxlarge/in/v2/16a89a71-4928-5633-9453-88c621eebd94/4298ed2f-e276-4caa-87d8-f183e6f6add7/mfhCTXp8_oIcS7XVKxHYA_2A_wk.jpg",
     highlight: "Hybrid savings with Toyota Safety Sense 3.0 standard",
     tags: ["Hybrid", "Most Affordable", "Toyota Safety Sense"]
   },
@@ -36,7 +36,7 @@ export const cars: Car[] = [
     monthlyLease: 329,
     matchScore: 88,
     mpg: "52 mpg hybrid / 44 mi EV",
-    imageUrl: "https://global.toyota/pages/models/prius-prime/2024/gallery/2024_prius_prime_1.jpg",
+    imageUrl: "https://pictures.dealer.com/t/toyotarichardsonvtg/0265/791740324841a6a7e45a921e3504c046x.jpg?impolicy=resize&w=1024",
     highlight: "Plug-in hybrid with EV-only commute range",
     tags: ["Plug-in", "Tech Focused", "CarPlay"]
   },
@@ -49,7 +49,7 @@ export const cars: Car[] = [
     monthlyLease: 309,
     matchScore: 85,
     mpg: "28 / 39 mpg",
-    imageUrl: "https://global.toyota/pages/models/camry/2025/gallery/2025_camry_1.jpg",
+    imageUrl: "https://pictures.dealer.com/t/toyotarichardsonvtg/1884/95afddcae85466860d7e498deeb09d5ax.jpg?impolicy=resize&w=1024",
     highlight: "Sporty style with standard Toyota Safety Sense 3.0",
     tags: ["Sport", "All-Wheel Drive", "Top Seller"]
   },
@@ -63,7 +63,7 @@ export const cars: Car[] = [
     matchScore: 83,
     mpg: "41 mpg combined",
     imageUrl:
-      "https://global.toyota/pages/models/rav4-hybrid/2025/gallery/2025_rav4_hybrid_1.jpg",
+      "https://pictures.dealer.com/t/toyotarichardsonvtg/1684/e66028d3f3a9771d79f1e3d9916449dcx.jpg?impolicy=resize&w=1024",
     highlight: "Compact SUV with hybrid efficiency for weekend getaways",
     tags: ["Hybrid", "Campus Life", "All-Wheel Drive"]
   },
@@ -76,7 +76,7 @@ export const cars: Car[] = [
     monthlyLease: 369,
     matchScore: 72,
     mpg: "20 / 27 mpg",
-    imageUrl: "https://global.toyota/pages/models/gr86/2024/gallery/2024_gr86_1.jpg",
+    imageUrl: "https://pictures.dealer.com/t/toyotarichardsonvtg/1035/459b264f55cebfd9d97070d10364e624x.jpg?impolicy=resize&w=1024",
     highlight: "Affordable performance coupe tuned with Gazoo Racing DNA",
     tags: ["Performance", "Manual", "Weekend Fun"]
   },
@@ -90,7 +90,7 @@ export const cars: Car[] = [
     matchScore: 64,
     mpg: "36 mpg combined",
     imageUrl:
-      "https://global.toyota/pages/models/grand-highlander/2025/gallery/2025_grand_highlander_1.jpg",
+      "https://pictures.dealer.com/t/toyotarichardsonvtg/0869/de2ffb9409edaf91e2e4f16e7b5677fdx.jpg?impolicy=resize&w=1024",
     highlight: "Three-row hybrid SUV ready for internships in other cities",
     tags: ["Family Trips", "Hybrid", "Road Trip"]
   },
@@ -103,7 +103,7 @@ export const cars: Car[] = [
     monthlyLease: 389,
     matchScore: 68,
     mpg: "252 mi EPA range",
-    imageUrl: "https://global.toyota/pages/models/bz4x/2024/gallery/2024_bz4x_1.jpg",
+    imageUrl: "https://images2.autotrader.com/hn/c/8f6fd04eb5294ea2aeaa12b0f8dc9f2c.jpg?format=auto&width=488&height=366&format=auto&width=800&height=600",
     highlight: "All-electric SUV with zero tailpipe emissions",
     tags: ["EV", "Zero Emissions", "Tech Loaded"]
   }

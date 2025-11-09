@@ -94,26 +94,6 @@ const LearnScreen = () => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.hero}>
-        <View style={styles.heroTextGroup}>
-          <Text style={styles.heroTitle}>Learn. Level Up. Unlock Toyota Offers.</Text>
-          <Text style={styles.heroSubtitle}>
-            Master financial literacy bite-by-bite, ace quick quizzes, and exchange points for exclusive
-            Toyota Financial Services incentives built for students.
-          </Text>
-        </View>
-        <View style={styles.pointsCard}>
-          <Text style={styles.pointsLabel}>Your Score</Text>
-          <Text style={styles.pointsValue}>{state.points} pts</Text>
-          <Text style={styles.levelTag}>Level {state.level}</Text>
-          <ProgressBar progress={(state.points % 250) / 250} />
-          <Text style={styles.pointsFooter}>
-            {250 - (state.points % 250)} pts to reach Level {state.level + 1}
-          </Text>
-        </View>
-      </View>
-
-      <Text style={styles.sectionLabel}>Academy Tracks</Text>
       <FlatList
         data={lessons}
         keyExtractor={(item) => item.id}
@@ -139,6 +119,29 @@ const LearnScreen = () => {
         contentContainerStyle={styles.lessonList}
         ItemSeparatorComponent={() => <View style={{ height: 14 }} />}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <View style={styles.listHeader}>
+            <View style={styles.hero}>
+              <View style={styles.heroTextGroup}>
+                <Text style={styles.heroTitle}>Learn. Level Up. Unlock Toyota Offers.</Text>
+                <Text style={styles.heroSubtitle}>
+                  Master financial literacy bite-by-bite, ace quick quizzes, and exchange points for
+                  exclusive Toyota Financial Services incentives built for students.
+                </Text>
+              </View>
+              <View style={styles.pointsCard}>
+                <Text style={styles.pointsLabel}>Your Score</Text>
+                <Text style={styles.pointsValue}>{state.points} pts</Text>
+                <Text style={styles.levelTag}>Level {state.level}</Text>
+                <ProgressBar progress={(state.points % 250) / 250} />
+                <Text style={styles.pointsFooter}>
+                  {250 - (state.points % 250)} pts to reach Level {state.level + 1}
+                </Text>
+              </View>
+            </View>
+            <Text style={styles.sectionLabel}>Academy Tracks</Text>
+          </View>
+        }
       />
 
       <Modal visible={isModalVisible} animationType="slide" onRequestClose={handleCloseModal}>
@@ -264,11 +267,12 @@ const LearnScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#f5f7fb",
+    backgroundColor: "#f5f7fb"
+  },
+  listHeader: {
     paddingTop: 48
   },
   hero: {
-    paddingHorizontal: 20,
     paddingBottom: 24
   },
   heroTextGroup: {
@@ -328,7 +332,6 @@ const styles = StyleSheet.create({
     fontFamily: "Manrope_700Bold",
     fontSize: 16,
     color: "#374b63",
-    marginHorizontal: 20,
     marginBottom: 12
   },
   lessonList: {
