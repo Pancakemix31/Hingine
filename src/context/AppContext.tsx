@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from "react";
 
-import { cars } from "@/data/cars";
 import { offers } from "@/data/offers";
 import { lessons } from "@/data/lessons";
 
@@ -29,6 +28,23 @@ export type Profile = {
   creditScoreEstimate: number;
 };
 
+export type FinancePreferences = {
+  financingType: "finance";
+  monthlyPayment: number;
+  downPayment: number;
+  termLength: number;
+};
+
+export type LeasePreferences = {
+  financingType: "lease";
+  monthlyPayment: number;
+  dueAtSigning: number;
+  mileageAllowance: number;
+  leaseTerm: number;
+};
+
+export type FinancialPreferences = FinancePreferences | LeasePreferences;
+
 export type AppState = {
   points: number;
   level: number;
@@ -42,32 +58,34 @@ export type AppState = {
   savedCars: string[];
   goals: Goal[];
   profile: Profile;
+  financialPreferences: FinancialPreferences | null;
 };
 
 export type AppContextValue = {
   state: AppState;
   completeLesson: (lessonId: string) => number;
-  recordSwipe: (carId: string, decision: SwipeDecision) => void;
+  recordSwipe: (carId: string, decision: SwipeDecision, matchScore: number) => void;
   toggleSavedCar: (carId: string) => void;
   addGoal: (goal: Omit<Goal, "id" | "createdAt">) => void;
   updateGoal: (goalId: string, updates: Partial<Goal>) => void;
   deleteGoal: (goalId: string) => void;
   updateProfile: (updates: Partial<Profile>) => void;
+  updateFinancialPreferences: (preferences: FinancialPreferences) => void;
   resetProgress: () => void;
 };
 
 const AppContext = createContext<AppContextValue | undefined>(undefined);
 
 const initialProfile: Profile = {
-  name: "Avery Kim",
+  name: "Mustafa Hasani",
   age: 20,
-  school: "State University",
-  major: "Finance & Analytics",
-  graduationYear: 2026,
-  email: "avery.kim@example.com",
+  school: "UT Dallas",
+  major: "Finance",
+  graduationYear: 2027,
+  email: "mustafa.hasani@utdallas.edu",
   phone: "555-0133",
-  monthlyBudget: 380,
-  creditScoreEstimate: 705
+  monthlyBudget: 220,
+  creditScoreEstimate: 794
 };
 
 const initialState: AppState = {
@@ -77,7 +95,8 @@ const initialState: AppState = {
   swipeHistory: [],
   savedCars: [],
   goals: [],
-  profile: initialProfile
+  profile: initialProfile,
+  financialPreferences: null
 };
 
 const LEVEL_SIZE = 250;
@@ -115,9 +134,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     []
   );
 
-  const recordSwipe = useCallback((carId: string, decision: SwipeDecision) => {
-    const car = cars.find((item) => item.id === carId);
-    const matchScore = car?.matchScore ?? 0;
+  const recordSwipe = useCallback((carId: string, decision: SwipeDecision, matchScore: number) => {
     setState((prev) => ({
       ...prev,
       swipeHistory: [
@@ -181,6 +198,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }));
   }, []);
 
+  const updateFinancialPreferences = useCallback((preferences: FinancialPreferences) => {
+    setState((prev) => ({
+      ...prev,
+      financialPreferences: preferences
+    }));
+  }, []);
+
   const resetProgress = useCallback(() => {
     setState(initialState);
   }, []);
@@ -195,9 +219,21 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       updateGoal,
       deleteGoal,
       updateProfile,
+      updateFinancialPreferences,
       resetProgress
     }),
-    [state, completeLesson, recordSwipe, toggleSavedCar, addGoal, updateGoal, deleteGoal, updateProfile, resetProgress]
+    [
+      state,
+      completeLesson,
+      recordSwipe,
+      toggleSavedCar,
+      addGoal,
+      updateGoal,
+      deleteGoal,
+      updateProfile,
+      updateFinancialPreferences,
+      resetProgress
+    ]
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

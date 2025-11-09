@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import "react-native-reanimated";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -14,9 +14,10 @@ import { AppProvider } from "@/context/AppContext";
 import { ensureFontPolyfill } from "@/utils/ensureFontPolyfill";
 import OffersScreen from "@/screens/OffersScreen";
 import LearnScreen from "@/screens/LearnScreen";
-import GoalsScreen from "@/screens/GoalsScreen";
+import GarageScreen from "@/screens/GarageScreen";
 import ProfileScreen from "@/screens/ProfileScreen";
 import SwipeScreen from "@/screens/SwipeScreen";
+import LoadingScreen from "@/screens/LoadingScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -36,6 +37,7 @@ const App = () => {
     Manrope_600SemiBold,
     Manrope_700Bold
   });
+  const [hasLaunched, setHasLaunched] = useState(false);
 
   useEffect(() => {
     if (fontError) {
@@ -49,6 +51,10 @@ const App = () => {
         <ActivityIndicator size="large" color="#ef2b2d" />
       </View>
     );
+  }
+
+  if (!hasLaunched) {
+    return <LoadingScreen onDrive={() => setHasLaunched(true)} />;
   }
 
   return (
@@ -73,7 +79,7 @@ const App = () => {
               if (route.name === "Match") iconName = focused ? "swap-horizontal" : "swap-horizontal-outline";
               if (route.name === "Learn") iconName = focused ? "book" : "book-outline";
               if (route.name === "Rewards") iconName = focused ? "gift" : "gift-outline";
-              if (route.name === "Goals") iconName = focused ? "flag" : "flag-outline";
+              if (route.name === "Garage") iconName = focused ? "car-sport" : "car-sport-outline";
               if (route.name === "Profile") iconName = focused ? "person" : "person-outline";
               return <Ionicons name={iconName} size={size} color={color} />;
             }
@@ -82,7 +88,7 @@ const App = () => {
           <Tab.Screen name="Match" component={SwipeScreen} />
           <Tab.Screen name="Learn" component={LearnScreen} />
           <Tab.Screen name="Rewards" component={OffersScreen} />
-          <Tab.Screen name="Goals" component={GoalsScreen} />
+          <Tab.Screen name="Garage" component={GarageScreen} />
           <Tab.Screen name="Profile" component={ProfileScreen} />
         </Tab.Navigator>
       </NavigationContainer>

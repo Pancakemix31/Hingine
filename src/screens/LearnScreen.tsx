@@ -21,6 +21,7 @@ type QuizState = {
   showExplanation: boolean;
   completed: boolean;
   pointsAwarded: number;
+  started: boolean;
 };
 
 const initialQuizState: QuizState = {
@@ -29,7 +30,8 @@ const initialQuizState: QuizState = {
   selectedOption: null,
   showExplanation: false,
   completed: false,
-  pointsAwarded: 0
+  pointsAwarded: 0,
+  started: false
 };
 
 const LearnScreen = () => {
@@ -61,7 +63,8 @@ const LearnScreen = () => {
       ...prev,
       selectedOption: optionIndex,
       showExplanation: true,
-      score: isCorrect ? prev.score + 1 : prev.score
+      score: isCorrect ? prev.score + 1 : prev.score,
+      started: true
     }));
   };
 
@@ -164,17 +167,20 @@ const LearnScreen = () => {
                 ))}
               </View>
 
-              <TouchableOpacity
-                style={styles.startQuizButton}
-                onPress={() =>
-                  setQuizState((prev) => ({
-                    ...prev,
-                    showExplanation: false
-                  }))
-                }
-              >
-                <Text style={styles.startQuizLabel}>Jump into quiz</Text>
-              </TouchableOpacity>
+              {!quizState.started && !quizState.completed ? (
+                <TouchableOpacity
+                  style={styles.startQuizButton}
+                  onPress={() =>
+                    setQuizState((prev) => ({
+                      ...prev,
+                      showExplanation: false,
+                      started: true
+                    }))
+                  }
+                >
+                  <Text style={styles.startQuizLabel}>Jump into quiz</Text>
+                </TouchableOpacity>
+              ) : null}
 
               <View style={styles.quizContainer}>
                 <View style={styles.quizHeader}>

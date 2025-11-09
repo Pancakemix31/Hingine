@@ -192,6 +192,117 @@ export const lessons: Lesson[] = [
           "The program rewards learners with special rate reductions, down payment matches, and loyalty incentives."
       }
     ]
+  },
+  {
+    id: "ownership-essentials",
+    title: "Own Your Toyota Without Surprises",
+    category: "Ownership",
+    duration: "5 min lesson • 3 question quiz",
+    points: 140,
+    description:
+      "Plan for insurance, registration, and maintenance so you can enjoy Toyota ownership without last-minute costs.",
+    objectives: [
+      "Estimate annual costs like registration, insurance renewals, and inspections",
+      "Build a monthly maintenance sinking fund for tires, brakes, and unexpected repairs",
+      "Compare ToyotaCare coverage with extended maintenance plans"
+    ],
+    quiz: [
+      {
+        id: "ownership-essentials-q1",
+        question:
+          "Which recurring expense should you budget for every year to keep your Toyota registered and street legal?",
+        options: [
+          "Parking tickets",
+          "Registration and inspection fees",
+          "Detailing upgrades",
+          "Monthly phone bill"
+        ],
+        answerIndex: 1,
+        explanation:
+          "Registration and inspection fees renew annually in most states, so set money aside before the bill arrives."
+      },
+      {
+        id: "ownership-essentials-q2",
+        question:
+          "How can you avoid being surprised by a $600 brake service after your ToyotaCare coverage ends?",
+        options: [
+          "Ignore dashboard lights until the car stops running",
+          "Set aside $25-$40 each month in a maintenance sinking fund",
+          "Wait for the dealership to offer a flash sale",
+          "Only use the emergency fund your parents set up"
+        ],
+        answerIndex: 1,
+        explanation:
+          "Making small monthly transfers into a maintenance sinking fund spreads big repairs across the year."
+      },
+      {
+        id: "ownership-essentials-q3",
+        question:
+          "ToyotaCare covers maintenance for the first 2 years or 25,000 miles. What should you do once that free coverage ends?",
+        options: [
+          "Stop servicing the vehicle to save money",
+          "Budget for routine services or purchase a prepaid maintenance plan",
+          "Only buy accessories instead of maintenance",
+          "Switch to the lowest-octane fuel you can find"
+        ],
+        answerIndex: 1,
+        explanation:
+          "Plan for oil changes, filters, and inspections after ToyotaCare expires so your vehicle stays reliable."
+      }
+    ]
+  },
+  {
+    id: "ev-charging-playbook",
+    title: "Master Your EV Charging Game Plan",
+    category: "EV & Hybrid",
+    duration: "5 min lesson • 3 question quiz",
+    points: 130,
+    description:
+      "Build a weekly charging strategy, stack incentives, and keep your Toyota electrified ride budget-friendly.",
+    objectives: [
+      "Compare Level 1 vs. Level 2 charging costs on campus and at home",
+      "Schedule charging during off-peak utility windows with the Toyota app",
+      "Identify federal, state, and utility incentives that stack with Toyota offers"
+    ],
+    quiz: [
+      {
+        id: "ev-charging-playbook-q1",
+        question:
+          "Your campus Level 2 charger costs $0.12 per kWh and the Prius Prime battery holds 13.6 kWh. About how much will a full charge cost?",
+        options: ["About $0.80", "About $1.60", "About $4.00", "About $12.00"],
+        answerIndex: 1,
+        explanation:
+          "13.6 kWh x $0.12 per kWh is $1.63, so budgeting around $1.60 per full charge is realistic."
+      },
+      {
+        id: "ev-charging-playbook-q2",
+        question:
+          "What is the smartest first step when planning a weekly charging schedule if you share a dorm charger with other students?",
+        options: [
+          "Show up whenever and hope a plug is open",
+          "Check charger reservations or availability through your campus portal or Toyota app",
+          "Only charge when the battery is completely empty",
+          "Use a gas generator in the parking lot as backup"
+        ],
+        answerIndex: 1,
+        explanation:
+          "Knowing reservation rules or live availability helps you lock in low-conflict charging windows ahead of time."
+      },
+      {
+        id: "ev-charging-playbook-q3",
+        question:
+          "After applying the Toyota College Grad Rebate, which incentive should you research next to lower your EV ownership costs?",
+        options: [
+          "A free sports streaming subscription",
+          "State or utility EV rebates for charging or vehicle purchases",
+          "Discounted parking at the campus gym",
+          "Waived student loan interest"
+        ],
+        answerIndex: 1,
+        explanation:
+          "Many states and utilities offer EV rebates or charging credits that can stack with Toyota incentives for additional savings."
+      }
+    ]
   }
 ];
 
