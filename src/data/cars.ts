@@ -11,7 +11,8 @@ export type Car = {
   highlight: string;
   tags: string[];
 };
-
+//ana abokk
+//
 export const cars: Car[] = [
   {
     id: "corolla-hybrid-2024",
